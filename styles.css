@@ -61,6 +61,12 @@ body {
     flex: 1;
 }
 
+.nav-separator {
+    width: 1px;
+    height: 100%;
+    background-color: var(--white);
+}
+
 .nav-button {
     height: 100%;
     background-color: var(--black);
