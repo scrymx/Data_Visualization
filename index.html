@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hospital Monitoring Screen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="top-nav">
+        <div class="nav-item" id="current-time">09:30<span class="gray">:11</span></div>
+        <div class="nav-item">Claudinho Keiser</div>
+        <div class="nav-item" id="current-date">14. <span class="gray">Dez</span></div>
+        <div class="nav-item">Body Scan Complete</div>
+        <div class="nav-item">04 <span class="gray">New Konfig.</span></div>
+        <div class="nav-item">Savings</div>
+        <div class="nav-item">Settings</div>
+    </header>
+
+    <main class="container">
+        <div class="folder large-folder">
+            <div class="folder-bg large">
+                <div class="folder-content">
+                    <div class="big-number green" id="hr-value">60</div>
+                    <div class="time-buttons trends-time-buttons">
+                        <button class="time-btn" data-window="30">00:30</button>
+                        <button class="time-btn active" data-window="300">05:00</button>
+                        <button class="time-btn" data-window="full">30:00</button>
+                    </div>
+                    <div class="trend-line-container">
+                        <img src="Elements/Trends_Line.svg" alt="Trends" class="trend-line">
+                        <div class="charts" id="chartsContainer">
+                            <div class="chart-row" id="hrRow">
+                                <svg class="chart-svg" id="hrChart"></svg>
+                            </div>
+                            <div id="overlayRows"></div>
+                            <div class="event-popup" id="eventPopup">
+                                <button data-type="Medication Given">Medication Given</button>
+                                <button data-type="Symptom Observed">Symptom Observed</button>
+                                <button data-type="Procedure Done">Procedure Done</button>
+                                <button data-type="Custom Note">Custom Note</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pause-row">
+                        <button class="pause-btn" id="pauseBtn">Go Live</button>    
+                        <button class="pause-btn" id="refreshBtn">Refresh</button>
+                        <button class="pause-btn" id="clearBtn">Clear</button>
+                    </div>
+                    <div class="events-panel" id="eventsPanel">
+                        <div class="events-title">Marked Events</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="folder small-folder" draggable="true" data-metric="spo2">
+            <div class="folder-bg small">
+                <div class="folder-content small-content">
+                    <div class="big-number cyan" id="spo2-value">90</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="folder small-folder" draggable="true" data-metric="rr">
+            <div class="folder-bg small">
+                <div class="folder-content small-content">
+                    <div class="big-number yellow" id="rr-value">15</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="folder wide-folder" draggable="true" data-metric="abp">
+            <div class="folder-bg wide">
+                <div class="folder-content wide-content">
+                    <div class="bp-container">
+                        <span class="big-number red" id="systolic-value">120</span>
+                        <span class="bp-separator red">|</span>
+                        <span class="big-number red" id="diastolic-value">70</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="folder small-folder" draggable="true" data-metric="pulse">
+            <div class="folder-bg small">
+                <div class="folder-content small-content">
+                    <div class="big-number purple" id="pulse-value">60</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="folder small-folder" draggable="true" data-metric="temp">
+            <div class="folder-bg small">
+                <div class="folder-content small-content">
+                    <div class="big-number orange" id="temp-value">37</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bottom-nav">
+        <div class="nav-spacer"></div>
+        <button class="nav-button">Set Alarm</button>
+        <button class="nav-button">Waveforms</button>
+        <button class="nav-button">Main Screen</button>
+        <button class="nav-button">All Values</button>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
