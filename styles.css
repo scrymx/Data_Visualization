@@ -17,13 +17,25 @@
 
 body {
     font-family: 'IBM Plex Sans Condensed', sans-serif;
-    background-color: var(--black);
+    background-color: #1a1a1a;
     color: var(--white);
     overflow: hidden;
     height: 100vh;
     width: 100vw;
     position: fixed;
     touch-action: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#app-container {
+    width: 1112px;
+    height: 780px;
+    background-color: var(--black);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
 
 .top-nav {
@@ -51,7 +63,7 @@ body {
     border-top: 1px solid var(--white);
     background-color: var(--black);
     height: 35px;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     right: 0;
@@ -96,7 +108,7 @@ body {
     row-gap: 0;
     column-gap: 40px;
     padding: 6px;
-    height: calc(100vh - 35px - 35px);
+    height: calc(780px - 70px);
 }
 
 .large-folder {

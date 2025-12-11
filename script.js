@@ -215,7 +215,7 @@ function stepData(now) {
 }
 
 function stepDisplayData(now) {
-    if (now - lastDisplayTime >= 250) {
+    if (now - lastDisplayTime >= 2000) {
         lastDisplayTime = now;
         currentIndex = (currentIndex + 1) % TOTAL_POINTS;
     }
